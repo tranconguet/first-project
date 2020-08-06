@@ -5,6 +5,29 @@ Author: OS Templates
 Author URI: https://www.os-templates.com/
 Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
 */
+.company_list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.company_list li{
+  display: inline-block;
+  font-size: 20px;
+}
+.job{
+  width: 80% ;
+  height: auto;
+  border: 5px brown solid;
+  border-radius: 20px;
+  float: left;
+  padding: 20px;
+  margin: 20px;
+}
+.logo{
+  margin: 20px;
+  height: 150px;
+  float: left;
+}
 
 html {
   overflow-y: scroll;
@@ -15,10 +38,13 @@ body {
   padding: 0;
   font-size: 13px;
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: black;
-  background-color: rgb(0, 238, 255);
+  color: white;
+  background-color: brown;
 }
-
+.page_results{
+  height: 400px;
+  height: auto;
+}
 .clear:after {
   content: ".";
   display: block;
@@ -127,8 +153,8 @@ div.wrapper {
 
 .row1,
 .row1 a {
-  color: black;
-  background-color: rgb(0, 238, 255);
+  color: white;
+  background-color: brown;
 }
 .row2 {
   color: black;
