@@ -1,6 +1,6 @@
 import {elements} from '../../utility/elements';
 
-const tagStyle = "display: inline;background-color: brown; margin: 10px;padding: 10px;border-radius: 10px;font-size:15px;"
+
 
 export const renderJobPage = job =>{
     const markup = `
@@ -21,7 +21,7 @@ export const renderJobPage = job =>{
         </div>
         <div class="about_job">
             <h1>${job.title}</h1>
-            <div style="margin: 30px">${job.tagList.map(tag => `<div style="${tagStyle}">${tag}</div>`).join('')}</div>
+            <div style="margin: 30px">${job.tagList.map(tag => `<div style="${Utility.tagStyle}">${tag}</div>`).join('')}</div>
             <p>Address: ${job.address}</p>
             <p>Time posted:${job.timePosted}</p>
             <ul>

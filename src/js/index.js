@@ -5,6 +5,11 @@ import * as Home from './view/Home/home';
 import * as CompanyList from './view/Companies/companyList';
 import * as JobDetails from './view/JobDetails/jobDetails';
 import * as CompanyDetails from './view/CompanyDetails/companyDetails';
+import * as Login from './view/Login/Login';
+import * as Profile from './view/Profile/profile';
+import * as Blog from './view/Blog/Blog';
+import * as Register from './view/Register/register';
+import * as AboutUs from './view/AboutUs/AboutUs';
 
 
 const jobs = require('../../data/jobs-data.json');
@@ -31,7 +36,7 @@ const state = {};
             renderHomePage();
             return;
         case 'jobs':
-            renderJobsPage();
+            renderJobsPage(jobs);
             return;
         case 'companies':
             renderCompaniesPage();
@@ -39,13 +44,32 @@ const state = {};
         case 'blogs':
             renderBlog();
             return;
+        case 'signin':
+            renderLogin();
+            return;
+        case 'register':
+            renderRegister();
+            return;
         case 'aboutus':
             renderAbouUs();
+            return;
+        case 'profile':
+            renderProfile();
             return;
         case 'defaut':
             renderErorr();
     }
 }));
+
+const renderLogin = () =>{
+    Utility.clearPage();
+    Login.renderLogin();
+}
+
+const renderRegister = () =>{
+    Utility.clearPage();
+    Register.renderRegister();
+}
 
 const renderEachJobPage = (jobCode) => {
     const index = jobNames.findIndex(el => el === jobCode);
@@ -67,19 +91,24 @@ const renderHomePage = () =>{
     Utility.clearPage();
     Home.renderHomePage();
 };
-const renderJobsPage = () =>{
+const renderJobsPage = (jobs) =>{
     Utility.clearPage();    
     JobList.renderJobList(jobs);
 }
+const renderProfile = () =>{
+    Utility.clearPage();    
+    Profile.renderProfile();
+}
 
 const renderBlog = () => {
-    // Thi code o dayy
-    // => vao file Blog viet 
+    Utility.clearPage(); 
+    Blog.renderBLog();
 }
 
 const renderAbouUs = () => {
-
-    // Thach code o day
-    // => vao file AboutUs
+    Utility.clearPage(); 
+    AboutUs.renderAboutUs();
 }
+
+
 

@@ -5,6 +5,192 @@ Author: OS Templates
 Author URI: https://www.os-templates.com/
 Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
 */
+/* ------------------------------------CSS for aboutus page -------------------------------------- */
+#aboutUs{
+  font-size: 20px;
+  width: 900px;
+  margin-bottom: 90px;
+  background-color: ;
+}
+#logoAboutUs{
+  width: 900px;
+}
+#imgAboutUs{
+  width: 500px;
+  height: 250px;
+  margin: 0px 0px 0px 150px;
+}
+#title p{
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+}
+#introduce{
+  float: left;
+}
+#introduce p{
+  font-weight: bold;
+  font-size: 23px;
+}
+#logoUET{
+  margin-right: 0px;
+  width: 250px;
+  float:right;
+}
+#UET{
+  width: 250px;
+}
+#listMember {
+  clear: both;
+  color: #FA5858;
+}
+#specific{
+}
+#specific p{
+  clear: both;
+  font-weight: bold;
+  font-size: 23px;
+}
+.LeftAbout{
+  clear: both;
+  width: 600px;
+  float: left;
+}
+.RightAbout{
+  margin-top: 60px;
+  width: 250px;
+  float: right;
+  margin-right: 30px;
+}
+.name{
+  color: red;
+  font-weight: bold;
+  font-size: 21px;
+}
+.imgAb{
+  width:200px;
+  border: 1px black solid;
+  border-radius: 8px;
+}
+#cutt{
+  clear: both;
+  width: 700px;
+  background-color: black;
+  height: 3px;
+  margin-left: 70px;
+}
+
+/* ----------------------------------CSS for blog page----------------------------------------- */
+.blog_page h2{
+  font-weight: 900;
+  font-size: 40px;
+  font-style: unset;
+}
+.blog_page a{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#logoBlog{
+  width: 150px;
+  float: left;
+}
+#title{
+  color: red;
+  font-size: 30px;
+  float: right;
+  width: 700px;
+}
+#intro{
+  clear: both;
+  font-style: italic;
+  color: #848484;
+  text-align:center;
+}
+.postBlog{
+  clear: both;
+  font-size: 20px;
+}
+#imgBlog1{
+  width: 500px;
+}
+.avt{
+  width: 60px;
+}
+.avatar{
+  float:left;
+  padding: 10px;
+}
+.Name{
+  color:;
+  padding:0px 0px 0px 0px;
+}
+.company{
+  font-size:15px;
+  color:#6E6E6E;
+}
+#leftPost{
+  float: left;
+  width: 600px;
+}
+#rightPost{
+  float: right;
+  width: 200px;
+}
+#img3{
+  width: 700px;
+}
+.cut{
+    clear: both;
+  width:700px;
+  height: 3px;
+  background-color: #A4A4A4;
+  margin-left: 100px;
+}
+/* ----------------------------------------------------------------------------------------- */
+.see_more{
+  background-color: brown;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
+  margin: 20px;
+  text-align: center;
+}
+#container form, .register_employer{
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+#container .input_field{
+  width: 300px;
+  height: 30px;
+  font-size:20px;
+  margin-bottom: 10px
+}
+#container #skills{
+  width: 100%;
+}
+
+.btn-update,.btn-findjob{
+  background-color: brown;
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  margin: 30px;
+}
+
+.login__form, .signup__form{
+  font-size: 30px;
+}
+.company_details p {
+  font-size: 20px;
+}
 .job_details{
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -31,7 +217,7 @@ a:link{
   font-size: 20px;
 }
 .job{
-  width: 80% ;
+  width: 100% ;
   height: auto;
   border: 5px brown solid;
   border-radius: 20px;
