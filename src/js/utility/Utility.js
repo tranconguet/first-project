@@ -19,7 +19,8 @@ export const convertDocument = doc =>{
 }
 
 export const tagStyle = `
-    display: inline;
+    display: inline-block;
+    white-space: nowrap;
     background-color: brown; 
     margin: 10px;
     padding: 10px;

@@ -148,6 +148,50 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
   margin-left: 100px;
 }
 /* ----------------------------------------------------------------------------------------- */
+.skill:hover{
+  cursor: pointer;
+}
+.skills{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 20px;
+  width: 50px;
+  height: auto;
+}
+.add_btn{
+  text-align: center;
+  margin: 10px;
+  padding: 8px;
+  height: 100%;
+  width: 60px;
+  display: inline-block;
+  background-color: brown;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-findcandidate, .btn-findjob{
+  font-size: 20px;
+}
+#say_hello{
+  margin: 0;
+  float: right;
+  font-size: 20px;
+}
+.logout_btn {
+  padding: 20px;
+  display: block;
+  font-size: 30px;
+  color: brown;
+  border: brown 2px solid;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+}
+.logout_btn:hover{
+  background-color: brown;
+  color: white;
+}
 .see_more{
   background-color: brown;
   color: white;
@@ -158,6 +202,10 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
   margin: 20px;
   text-align: center;
 }
+.see_more:hover{
+  cursor: pointer;
+}
+
 #container form, .register_employer{
   font-size: 20px;
   display: grid;
@@ -174,7 +222,7 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
   width: 100%;
 }
 
-.btn-update,.btn-findjob{
+.btn-update{
   background-color: brown;
   color: white;
   font-size: 20px;
@@ -362,10 +410,7 @@ div.wrapper {
   color: black;
   background-color: #ffffff;
 }
-.row2 a {
-  color: #ff9900;
-  background-color: #ffffff;
-}
+
 .row3,
 .row3 a {
   color: #919191;
@@ -515,19 +560,33 @@ select {
   font-size: 13px;
 }
 
-#header form {
+#header .search_form {
   display: block;
-  width: 290px;
+  width: 400px;
   float: right;
   margin: 20px 0;
   padding: 0;
+  font-size: 20px;
 }
-#header form input {
+#header .search_btn{
+  width: 80px;
+  height: 32px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+#header .search_btn:hover{
+  cursor: pointer;
+}
+#header .search_form input {
+  border-radius: 10px;
   display: block;
   float: left;
-  width: 200px;
-  margin: 0;
-  padding: 5px;
+  width: 300px;
+  height: 28px;
+  font-size: 20px;
   color: black;
   background-color: white;
   border: 1px solid #666666;

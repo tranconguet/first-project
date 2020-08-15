@@ -1,5 +1,5 @@
 import {elements} from '../../utility/elements';
-
+import * as Utility from '../../utility/Utility';
 
 
 export const renderJobPage = job =>{
@@ -21,7 +21,7 @@ export const renderJobPage = job =>{
         </div>
         <div class="about_job">
             <h1>${job.title}</h1>
-            <div style="margin: 30px">${job.tagList.map(tag => `<div style="${Utility.tagStyle}">${tag}</div>`).join('')}</div>
+            <div style="margin: 30px">${job.tagList.map(tag => `<a href="#search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
             <p>Address: ${job.address}</p>
             <p>Time posted:${job.timePosted}</p>
             <ul>

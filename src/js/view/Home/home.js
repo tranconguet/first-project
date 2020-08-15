@@ -8,7 +8,7 @@ export const renderHomePage = () => {
         <figcaption>
             <h2>JavaScript Developer (NodeJS/ReactJS)</h2>
             <p>Mạng Xã Hội Du Lịch Hahalolo.com</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
+            <footer class="more"><a href="http://localhost:8080/#developer-javascript-html-css-hahalolo-2655">Read More &raquo;</a></footer>
         </figcaption>
         </figure>
     </section>
@@ -28,11 +28,11 @@ export const renderHomePage = () => {
             <article class="two_quarter lastbox">
                 <figure>
                 <ul class="clear">
-                    <li><a href="#"><img src="https://cdn.itviec.com/employers/zalo/logo/w170/3LCycUB7awD7KLYUor3dgJWq/zalocareers_blue_2.png" width="130" height="130" alt=""></a></li>
-                    <li><a href="#"><img src="https://cdn.itviec.com/employers/favie-tech/logo/w170/p54L4zhX8ye12otWyPRjx2fA/0.png" width="130" height="130" alt=""></a></li>
-                    <li class="last"><a href="#"><img src="https://cdn.itviec.com/employers/sgh-asia-ltd/logo/w170/u6NKVMpfLpcaxFuogS3GkiDs/SGH-Asia-_-profile-picture-Dec-19%20IT%20VIEC.jpg" width="130" height="130" alt=""></a></li>
+                    <li><a href="http://localhost:8080/#companies/zalo"><img src="https://cdn.itviec.com/employers/zalo/logo/w170/3LCycUB7awD7KLYUor3dgJWq/zalocareers_blue_2.png" width="130" height="130" alt=""></a></li>
+                    <li><a href="http://localhost:8080/#companies/favie-tech"><img src="https://cdn.itviec.com/employers/favie-tech/logo/w170/p54L4zhX8ye12otWyPRjx2fA/0.png" width="130" height="130" alt=""></a></li>
+                    <li class="last"><a href="http://localhost:8080/#companies/sgh-asia-ltd"><img src="https://cdn.itviec.com/employers/sgh-asia-ltd/logo/w170/u6NKVMpfLpcaxFuogS3GkiDs/SGH-Asia-_-profile-picture-Dec-19%20IT%20VIEC.jpg" width="130" height="130" alt=""></a></li>
                 </ul>
-                <figcaption><a href="#">View More Jobs For You Here &raquo;</a></figcaption>
+                <figcaption><a href="http://localhost:8080/#jobs">View More Jobs For You Here &raquo;</a></figcaption>
                 </figure>
             </article>
         </section>

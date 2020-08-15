@@ -10,18 +10,62 @@ import * as Profile from './view/Profile/profile';
 import * as Blog from './view/Blog/Blog';
 import * as Register from './view/Register/register';
 import * as AboutUs from './view/AboutUs/AboutUs';
+import axios from 'axios';
+
 
 
 const jobs = require('../../data/jobs-data.json');
 
 const companies = require('../../data/company-data.json');
 const jobNames = jobs.map(job => Utility.getJobCodeFromUrl(job.url));
-const companyNames = companies.map(com => `company/${Utility.getCompanyCodeFromUrl(com.url)}`);
+const companyNames = companies.map(com => `companies/${Utility.getCompanyCodeFromUrl(com.url)}`);
 
 const state = {};
 
+(async() => {
+    await axios.get('http://localhost:3000/state')
+    .then(response =>{
+    console.log(response.data[0]);
+    if(response.data[0]){
+        state.user = response.data[0];
+    }}).catch(err =>{
+    console.log(err);
+});})().then(response=>{
+    if(state.user){
+        console.log('dang dang nhap');
+        document.querySelector('.switchState').innerHTML ='';
+        document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
+        <a class="profile" href="#profile">Profile</a>
+        `);
+        axios.get(`http://localhost:3000/auth/users/${state.user.userName}`)
+        .then(response =>{
+            console.log(response.data[0]);
+            state.userProfile = response.data[0];
+            elements.header.insertAdjacentHTML('beforeend',`<p id="say_hello">Hi ${state.userProfile.fullName ? state.userProfile.fullName : state.userProfile.userName} !</p>`);
+        }).catch(err =>{
+        console.log(err);})}
+    else{
+        console.log('khong ai dang nhap');
+        document.querySelector('.switchState').innerHTML ='';
+        document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
+        <a class="signin" href="#signin">Sign in</a>
+        `);
+    }});
+
+
+document.querySelector('.search_field').addEventListener('change',e=>{
+    document.getElementById('search').setAttribute("href",`#search-${e.target.value}`);
+});
+
+
 ['hashchange','load'].forEach(event => window.addEventListener(event, e =>{
     const link = window.location.hash.replace('#', '');
+    if(link.includes('search')){
+        const searchWord = link.slice(7);
+        console.log(searchWord);
+        renderSeachingJobsPage(searchWord);
+        return;
+    }
     if(jobNames.find(el => el === link)){
         renderEachJobPage(link);
         return;
@@ -36,7 +80,7 @@ const state = {};
             renderHomePage();
             return;
         case 'jobs':
-            renderJobsPage(jobs);
+            renderJobsPage();
             return;
         case 'companies':
             renderCompaniesPage();
@@ -54,7 +98,8 @@ const state = {};
             renderAbouUs();
             return;
         case 'profile':
-            renderProfile();
+            if(state.userProfile)
+                renderProfile(state.userProfile);
             return;
         case 'defaut':
             renderErorr();
@@ -72,9 +117,24 @@ const renderRegister = () =>{
 }
 
 const renderEachJobPage = (jobCode) => {
-    const index = jobNames.findIndex(el => el === jobCode);
     Utility.clearPage();
-    JobDetails.renderJobPage(jobs[index]);
+    axios.get(`http://localhost:3000/jobs/${jobCode}`)
+    .then(response=>{
+        JobDetails.renderJobPage(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
+const renderSeachingJobsPage = search =>{
+    Utility.clearPage();
+    axios.get(`http://localhost:3000/jobs/search/${search}`)
+    .then(response=>{
+        JobList.renderSearchJobList(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
 }
 
 const renderEachCompanyPage = (companyCode) => {
@@ -91,13 +151,22 @@ const renderHomePage = () =>{
     Utility.clearPage();
     Home.renderHomePage();
 };
-const renderJobsPage = (jobs) =>{
-    Utility.clearPage();    
-    JobList.renderJobList(jobs);
+const renderJobsPage = () =>{
+    Utility.clearPage();
+    axios.get('http://localhost:3000/jobs')
+    .then(response=>{
+        JobList.renderJobList(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
 }
-const renderProfile = () =>{
-    Utility.clearPage();    
-    Profile.renderProfile();
+const renderProfile = (userInfo) =>{
+    Utility.clearPage();
+    if(userInfo.type === 'candidate')
+        Profile.renderCandidateProfile(userInfo);
+    else
+        Profile.renderEmployerProfile(userInfo);
 }
 
 const renderBlog = () => {
