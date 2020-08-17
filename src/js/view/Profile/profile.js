@@ -73,7 +73,7 @@ export const renderEmployerProfile = (info) => {
               </div>
           </form>
           <input class="btn-update" type="submit"  value="Update">
-          <a class="btn-findcandidate" href="#"> Find candidate >> </a>
+          <a class="btn-findcandidate" href="http://localhost:8080/#find-candidates"> Find candidate >> </a>
           <a class="logout_btn" href="http://localhost:8080/">Log out</a>
       </div>
       `;

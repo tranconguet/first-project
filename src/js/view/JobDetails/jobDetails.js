@@ -23,6 +23,7 @@ export const renderJobPage = job =>{
             <h1>${job.title}</h1>
             <div style="margin: 30px">${job.tagList.map(tag => `<a href="#search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
             <p>Address: ${job.address}</p>
+            <p style="color: red ;" >Contact us or apply: ${job.contact}</p>
             <p>Time posted:${job.timePosted}</p>
             <ul>
                 <h2>Top 3 reasons to join us:</h2><br>

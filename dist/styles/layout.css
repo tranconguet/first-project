@@ -148,6 +148,13 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
   margin-left: 100px;
 }
 /* ----------------------------------------------------------------------------------------- */
+.candidate{
+  border: brown 2px solid;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
 .skill:hover{
   cursor: pointer;
 }

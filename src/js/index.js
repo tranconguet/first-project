@@ -10,6 +10,7 @@ import * as Profile from './view/Profile/profile';
 import * as Blog from './view/Blog/Blog';
 import * as Register from './view/Register/register';
 import * as AboutUs from './view/AboutUs/AboutUs';
+import * as Candidates from './view/Candidates/Candidates';
 import axios from 'axios';
 
 
@@ -101,6 +102,10 @@ document.querySelector('.search_field').addEventListener('change',e=>{
             if(state.userProfile)
                 renderProfile(state.userProfile);
             return;
+        case 'find-candidates':
+            if(state.userProfile)
+                renderCandidates(state.userProfile.skills);
+            return;
         case 'defaut':
             renderErorr();
     }
@@ -167,6 +172,10 @@ const renderProfile = (userInfo) =>{
         Profile.renderCandidateProfile(userInfo);
     else
         Profile.renderEmployerProfile(userInfo);
+}
+const renderCandidates = (skills) =>{
+    Utility.clearPage();
+    Candidates.renderCandidates(skills);
 }
 
 const renderBlog = () => {
