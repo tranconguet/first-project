@@ -73,7 +73,7 @@ export const renderEmployerProfile = (info) => {
               </div>
           </form>
           <input class="btn-update" type="submit"  value="Update">
-          <a class="btn-findcandidate" href="http://localhost:8080/#find-candidates"> Find candidate >> </a>
+          <a class="btn-findcandidate" href="http://localhost:8080/find-candidates"> Find candidate >> </a>
           <a class="logout_btn" href="http://localhost:8080/">Log out</a>
       </div>
       `;
@@ -167,7 +167,7 @@ export const renderCandidateProfile = (info) => {
                 </div>
             </div>
             <input class="btn-update" type="submit"  value="Update">
-            <a class="btn-findjob" href="#search-${info.skills.join(' ')}">Find jobs >></a>
+            <a class="btn-findjob" href="search-${info.skills.join(' ')}">Find jobs >></a>
         </form>
         <a class="logout_btn" href="http://localhost:8080/">Log out</a>
     </div>

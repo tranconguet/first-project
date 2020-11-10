@@ -24,7 +24,7 @@ export const renderAboutUs = () =>{
                     <li>Trần Công Minh</li>
                 </ol>
                 <li>Tất cả đều đang học tập tại trường ĐH Công Nghệ - ĐH Quốc Gia Hà Nội.</li>
-            /ul>
+            </ul>
             <br><br>
         </div>
         <div id ="logoUET">

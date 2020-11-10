@@ -6,22 +6,22 @@ export const renderJobPage = job =>{
     const markup = `
     <div class="job_details" id="job_69312">
         <div class="about_employers">
-            <a style="text-align: center; display: block; margin-bottom: 20px" href=#${job.employerInfo.link.slice(1,100)}>
+            <a style="text-align: center; display: block; margin-bottom: 20px" href=${job.employerInfo.link.slice(1,100)}>
                 <img  alt="logo" witdh="auto" height="auto" src=${job.employerInfo.image} >
             </a>
-            <a href = #${job.employerInfo.link.slice(1,100)}>
+            <a href = ${job.employerInfo.link.slice(1,100)}>
                 <h1 style="text-decoration: none; color: brown;font-size: 20px;">Company: ${job.employerInfo.name}</h1>
             </a>
             <p>${job.employerInfo.shortDescription}</p>
 
-            <a href=#${job.employerInfo.link.slice(1,100)}>
+            <a href=${job.employerInfo.link.slice(1,100)}>
                 <h3 style="text-decoration: none; color: brown;">Detail ...</h3>
             </a>
 
         </div>
         <div class="about_job">
             <h1>${job.title}</h1>
-            <div style="margin: 30px">${job.tagList.map(tag => `<a href="#search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
+            <div style="margin: 30px">${job.tagList.map(tag => `<a href="search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
             <p>Address: ${job.address}</p>
             <p style="color: red ;" >Contact us or apply: ${job.contact}</p>
             <p>Time posted:${job.timePosted}</p>

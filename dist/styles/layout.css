@@ -5,6 +5,85 @@ Author: OS Templates
 Author URI: https://www.os-templates.com/
 Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
 */
+/*------------------ADMIN page -------------------------------*/
+.admin .logout_btn{
+  float: right;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.change_unit,.delete_unit{
+  text-align: center;
+}
+
+.change_button,.delete_button{
+  cursor: pointer;
+}
+.add_button{
+  font-size: 20px;
+  height: 30px;
+  margin: 20px;
+  float: right;
+  cursor: pointer;
+}
+td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+select {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none; */
+  outline: 0;
+  box-shadow: none;
+  border: 10 !important;
+  background: white;
+  background-image: none;
+  font-size: 20px;
+}
+/* Remove IE arrow */
+/* Custom Select */
+.select {
+  margin: 20px;
+  position: relative;
+  border: 2px brown;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: brown;
+  overflow: hidden;
+  border-radius: .25em;
+  border: 2px brown;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: black;
+  cursor: pointer;
+}
+optgroup { font-size:15px; }
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: brown;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+  border: 2px brown;
+}
+/* Transition */
+.select:hover::after {
+  color: white;
+}
 /* ------------------------------------CSS for aboutus page -------------------------------------- */
 #aboutUs{
   font-size: 20px;
@@ -186,6 +265,7 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
   font-size: 20px;
 }
 .logout_btn {
+  margin: 20px;
   padding: 20px;
   display: block;
   font-size: 30px;
@@ -490,8 +570,7 @@ legend {
   display: none;
 }
 input,
-textarea,
-select {
+textarea{
   font-size: 12px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }

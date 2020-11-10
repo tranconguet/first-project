@@ -4,13 +4,47 @@
   <title>IT Jobs</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles/layout.css" type="text/css">
+  <script>
+    window.onload = () => {
+      console.log('DOM has loaded')
+      //create route constructor
+
+      var Router = function(name, routes){
+        return{
+          name: name,
+          routes: routes
+        }    
+      }
+      var myFirstRouter = new Router('myFirstRouter', [
+        {
+          path: '/',
+          name: 'Root'
+        },
+        {
+          path: '/jobs',
+          name: 'Jobs'
+        },
+        {
+          path: '/aboutus',
+          name: 'About'
+        }
+      ])
+      var currentPath = window.location.pathname;
+      if(currentPath === '/'){
+        console.log('On the root page')
+      }else{
+        console.log('On the other page')
+      }
+    }
+  </script>
+  <script src="js/adminManage.js"></script>
 </head>
 <body>
   <div class="wrapper row1">
     <header id="header" class="clear">
       <div id="hgroup">
-        <h1><a class="big__logo" href="#">IT JOBS FOR YOU</a></h1>
-        <h2>From group 11 with love ~ </h2>
+        <h1><a class="big__logo" href="/">IT JOBS FOR YOU</a></h1>
+        <h2></h2>
       </div>
       <div class="search_form">
           <input type="text" class="search_field" placeholder="Search by company or your skills . . . . ">
@@ -20,11 +54,11 @@
       </div>
       <nav>
         <ul>
-          <li><a class="jobs" href="http://localhost:8080/#jobs">Jobs</a></li>
-          <li><a class="companies" href="http://localhost:8080/#companies">Company</a></li>
-          <li><a class="blog" href="http://localhost:8080/#blogs">Blog</a></li>
-          <li class="switchState"><a class="signin" href="http://localhost:8080/#signin">Sign in</a></li>
-          <li class="last aboutus"> <a href="http://localhost:8080/#aboutus">About us</a></li>
+          <li><a class="jobs" href="http://localhost:8080/jobs">Jobs</a></li>
+          <li><a class="companies" href="http://localhost:8080/companies">Company</a></li>
+          <li><a class="blog" href="http://localhost:8080/blogs">Blog</a></li>
+          <li class="switchState"><a class="signin" href="http://localhost:8080/signin">Sign in</a></li>
+          <li class="last aboutus"> <a href="http://localhost:8080/aboutus">About us</a></li>
         </ul>
       </nav>
     </header>
@@ -89,10 +123,10 @@
           <h2 class="title">Quick Links</h2>
           <nav>
             <ul>
-              <li><a href="http://localhost:8080/#jobs">Jobs</a></li>
-              <li><a href="http://localhost:8080/#companies">Company</a></li>
-              <li><a href="http://localhost:8080/#blogs">Blog</a></li>
-              <li><a href="http://localhost:8080/#aboutus">About us</a></li>
+              <li><a href="http://localhost:8080/jobs">Jobs</a></li>
+              <li><a href="http://localhost:8080/companies">Company</a></li>
+              <li><a href="http://localhost:8080/blogs">Blog</a></li>
+              <li><a href="http://localhost:8080/aboutus">About us</a></li>
             </ul>
           </nav>
         </section>

@@ -1,17 +1,18 @@
-import {elements} from './utility/elements';
-import * as Utility from './utility/Utility';
-import * as JobList from './view/JobList/JobList';
-import * as Home from './view/Home/home';
-import * as CompanyList from './view/Companies/companyList';
-import * as JobDetails from './view/JobDetails/jobDetails';
-import * as CompanyDetails from './view/CompanyDetails/companyDetails';
-import * as Login from './view/Login/Login';
-import * as Profile from './view/Profile/profile';
-import * as Blog from './view/Blog/Blog';
-import * as Register from './view/Register/register';
-import * as AboutUs from './view/AboutUs/AboutUs';
-import * as Candidates from './view/Candidates/Candidates';
-import axios from 'axios';
+import {elements} from './utility/elements'
+import * as Utility from './utility/Utility'
+import * as JobList from './view/JobList/JobList'
+import * as Home from './view/Home/home'
+import * as CompanyList from './view/Companies/companyList'
+import * as JobDetails from './view/JobDetails/jobDetails'
+import * as CompanyDetails from './view/CompanyDetails/companyDetails'
+import * as Login from './view/Login/Login'
+import * as Profile from './view/Profile/profile'
+import * as Blog from './view/Blog/Blog'
+import * as Register from './view/Register/register'
+import * as AboutUs from './view/AboutUs/AboutUs'
+import * as Candidates from './view/Candidates/Candidates'
+import * as Admin from './view/Admin/Admin'
+import axios from 'axios'
 
 
 
@@ -23,88 +24,96 @@ const companyNames = companies.map(com => `companies/${Utility.getCompanyCodeFro
 
 const state = {};
 
-(async() => {
+const fetchData = async () => {
     await axios.get('http://localhost:3000/state')
-    .then(response =>{
+    .then(async response =>{
     console.log(response.data[0]);
     if(response.data[0]){
         state.user = response.data[0];
-    }}).catch(err =>{
-    console.log(err);
-});})().then(response=>{
-    if(state.user){
         console.log('dang dang nhap');
         document.querySelector('.switchState').innerHTML ='';
         document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
-        <a class="profile" href="#profile">Profile</a>
-        `);
-        axios.get(`http://localhost:3000/auth/users/${state.user.userName}`)
+            <a class="profile" href="/profile">Profile</a>`);
+        if(response.data[0].userName === 'admin'){
+            document.querySelector('.switchState').innerHTML ='';
+            document.querySelector('.switchState').insertAdjacentHTML('beforeend',
+                `<a class="profile" href="/admin">Admin</a>`);
+        }
+            
+        await axios.get(`http://localhost:3000/auth/users/${state.user.userName}`)
         .then(response =>{
-            console.log(response.data[0]);
-            state.userProfile = response.data[0];
-            elements.header.insertAdjacentHTML('beforeend',`<p id="say_hello">Hi ${state.userProfile.fullName ? state.userProfile.fullName : state.userProfile.userName} !</p>`);
+                console.log(response.data[0]);
+                state.userProfile = response.data[0];
+                elements.header.insertAdjacentHTML('beforeend',`<p id="say_hello">Hi ${state.userProfile.fullName ? state.userProfile.fullName : state.userProfile.userName} !</p>`);
         }).catch(err =>{
-        console.log(err);})}
-    else{
+        console.log(err);})
+    }else{
         console.log('khong ai dang nhap');
         document.querySelector('.switchState').innerHTML ='';
         document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
-        <a class="signin" href="#signin">Sign in</a>
+        <a class="signin" href="/signin">Sign in</a>
         `);
-    }});
+    }}).catch(err =>{
+    console.log(err);
+});};
+
+fetchData()
 
 
 document.querySelector('.search_field').addEventListener('change',e=>{
-    document.getElementById('search').setAttribute("href",`#search-${e.target.value}`);
+    document.getElementById('search').setAttribute("href",`http://localhost:8080/search-${e.target.value}`);
 });
 
 
 ['hashchange','load'].forEach(event => window.addEventListener(event, e =>{
-    const link = window.location.hash.replace('#', '');
+    const link = window.location.href
+    const path = link.slice(22,link.length)
+    console.log(path)
     if(link.includes('search')){
-        const searchWord = link.slice(7);
+        const searchWord = path.slice(7);
         console.log(searchWord);
         renderSeachingJobsPage(searchWord);
         return;
     }
-    if(jobNames.find(el => el === link)){
-        renderEachJobPage(link);
+    if(jobNames.find(el => el === path)){
+        renderEachJobPage(path);
         return;
     }
-    if(companyNames.find(el => el === link)){
+    if(companyNames.find(el => el === path)){
         console.log('find!')
-        renderEachCompanyPage(link);
+        renderEachCompanyPage(path);
         return;
     }
-    switch(link){
+    switch(path){
         case '':
-            renderHomePage();
+            renderHomePage()
             return;
         case 'jobs':
-            renderJobsPage();
-            return;
+            renderJobsPage()
+            return
         case 'companies':
-            renderCompaniesPage();
-            return;
+            renderCompaniesPage()
+            return
         case 'blogs':
-            renderBlog();
-            return;
+            renderBlog()
+            return
         case 'signin':
-            renderLogin();
-            return;
+            renderLogin()
+            return
         case 'register':
-            renderRegister();
-            return;
+            renderRegister()
+            return
         case 'aboutus':
-            renderAbouUs();
+            renderAbouUs()
             return;
         case 'profile':
-            if(state.userProfile)
-                renderProfile(state.userProfile);
+            renderProfile()
+            return;
+        case 'admin':
+            renderAdmin()
             return;
         case 'find-candidates':
-            if(state.userProfile)
-                renderCandidates(state.userProfile.skills);
+            renderCandidates(state.userProfile.skills)
             return;
         case 'defaut':
             renderErorr();
@@ -148,30 +157,53 @@ const renderEachCompanyPage = (companyCode) => {
     CompanyDetails.renderCompanyPage(companies[index]);
 }
 
-const renderCompaniesPage = () =>{
+const renderCompaniesPage = async () =>{
     Utility.clearPage();
-    CompanyList.renderCompanyList(companies);
+    await axios.get('http://localhost:3000/companies')
+    .then(response=>{
+        if(response.data)
+            CompanyList.renderCompanyList(companies);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+    
 }
 const renderHomePage = () =>{
     Utility.clearPage();
     Home.renderHomePage();
 };
-const renderJobsPage = () =>{
+const renderJobsPage = async () =>{
     Utility.clearPage();
-    axios.get('http://localhost:3000/jobs')
+    await axios.get('http://localhost:3000/jobs')
     .then(response=>{
-        JobList.renderJobList(response.data);
+        if(response.data)
+            JobList.renderJobList(response.data);
     }
     ).catch(err=>{
         console.log(err);
     });   
 }
-const renderProfile = (userInfo) =>{
-    Utility.clearPage();
-    if(userInfo.type === 'candidate')
-        Profile.renderCandidateProfile(userInfo);
-    else
-        Profile.renderEmployerProfile(userInfo);
+const renderProfile = () =>{
+    console.log(state.user)
+    Utility.clearPage()
+    axios.get('http://localhost:3000/state')
+    .then(response => {
+        const userName = response.data[0].userName
+        axios.get(`http://localhost:3000/auth/users/${userName}`)
+        .then(response => {
+            const userInfo = response.data[0]
+            console.log(userInfo)
+            if(userInfo.type === 'candidate')
+                Profile.renderCandidateProfile(userInfo);
+            else
+                Profile.renderEmployerProfile(userInfo);
+        })
+    })
+}
+const renderAdmin = () => {
+    Utility.clearPage()
+    Admin.renderAdminPage()
 }
 const renderCandidates = (skills) =>{
     Utility.clearPage();
@@ -189,4 +221,6 @@ const renderAbouUs = () => {
 }
 
 
-
+function change(){
+    console.log('hello')
+}

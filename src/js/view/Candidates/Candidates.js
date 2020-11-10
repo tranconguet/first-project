@@ -18,7 +18,7 @@ export const renderCandidates = companySkills =>{
                     <div class="candidate">
                         <p>Candidate name: ${el.fullName}</p>
                         <p>Experiences: ${el.experiences}</p>
-                        <p>Skills: ${el.skills.map(tag => `<a href="#search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</p>
+                        <p>Skills: ${el.skills.map(tag => `<a href="search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</p>
                         <p>Email: ${el.email}</p>
                     </div>
                 `)}
