@@ -6,6 +6,14 @@ Author URI: https://www.os-templates.com/
 Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
 */
 /*------------------ADMIN page -------------------------------*/
+.add_job{
+  text-align: center;
+}
+.add_job_button{
+  font-size: 40px;
+  padding: 10px 30px;
+  color: brown;
+}
 .admin .logout_btn{
   float: right;
 }

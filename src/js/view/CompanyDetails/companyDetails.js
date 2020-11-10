@@ -12,7 +12,7 @@ export const renderCompanyPage = company =>{
                 <h1 >${company.title}</h1>
                 <p>${company.address}</p>
                 <p style="color: red ;">Contact us: ${company.contact}</p>
-                <div style="margin: 30px">${company.keySkills.map(tag => `<a href="search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
+                <div style="margin: 30px">${company.keySkills.map(tag => `<a href="/search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}</div>
             </div>
             
             <h1><strong>Overview:</strong></h1><br>

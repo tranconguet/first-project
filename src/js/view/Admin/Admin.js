@@ -3,9 +3,6 @@ import * as Utility from '../../utility/Utility';
 
 
 export const renderAdminPage = () => {
-    const change = () =>{
-        console.log('hello')
-    }
     const markup = `
         <div class="admin">
             <h1>ADMINISTRATOR</h1>

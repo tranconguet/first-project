@@ -167,7 +167,6 @@ const renderCompaniesPage = async () =>{
     ).catch(err=>{
         console.log(err);
     });   
-    
 }
 const renderHomePage = () =>{
     Utility.clearPage();

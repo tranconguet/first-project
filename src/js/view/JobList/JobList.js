@@ -15,7 +15,7 @@ const EachJob = job => {
                 <h2>${job.employerInfo.shortDescription} ...</h2>
             </div>
             <div>
-                ${job.tagList.slice(0,3).map(tag => `<a href="#search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}
+                ${job.tagList.slice(0,3).map(tag => `<a href="/search-${tag}"><div style="${Utility.tagStyle}">${tag}</div></a>`).join('')}
             </div>
         </div>
       `;
