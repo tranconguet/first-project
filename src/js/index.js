@@ -113,7 +113,7 @@ document.querySelector('.search_field').addEventListener('change',e=>{
             renderAdmin()
             return;
         case 'find-candidates':
-            renderCandidates(state.userProfile.skills)
+            renderCandidates()
             return;
         case 'defaut':
             renderErorr();
@@ -184,7 +184,6 @@ const renderJobsPage = async () =>{
     });   
 }
 const renderProfile = () =>{
-    console.log(state.user)
     Utility.clearPage()
     axios.get('http://localhost:3000/state')
     .then(response => {
@@ -204,9 +203,9 @@ const renderAdmin = () => {
     Utility.clearPage()
     Admin.renderAdminPage()
 }
-const renderCandidates = (skills) =>{
+const renderCandidates = () =>{
     Utility.clearPage();
-    Candidates.renderCandidates(skills);
+    Candidates.renderCandidates();
 }
 
 const renderBlog = () => {
